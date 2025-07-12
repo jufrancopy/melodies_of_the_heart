@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melodías del Corazón - Coro Profesional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .logo {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .brand-text {
+            text-align: center;
+        }
+
+        .brand-text h1 {
+            font-size: 2.5rem;
+            color: #4a5568;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .brand-text p {
+            font-size: 1.1rem;
+            color: #718096;
+            font-style: italic;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Plans Section */
+        .plans {
+            padding: 80px 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .plans h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #4a5568;
+        }
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .plan-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .plan-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .plan-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .plan-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .plan-title {
+            font-size: 1.8rem;
+            color: #4a5568;
+            margin-bottom: 10px;
+        }
+
+        .plan-subtitle {
+            color: #718096;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .plan-features {
+            margin-bottom: 30px;
+        }
+
+        .plan-features h4 {
+            color: #4a5568;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .plan-features ul {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .plan-features li {
+            padding: 5px 0;
+            color: #718096;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .plan-features li::before {
+            content: '♪';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .plan-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: white;
+            margin: 5% auto;
+            padding: 0;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 800px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .close {
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .close:hover {
+            opacity: 0.7;
+        }
+
+        .modal-body {
+            padding: 20px;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .brand-text h1 {
+                font-size: 2rem;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .plans-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .plan-card {
+                padding: 30px;
+            }
+        }
+
+        /* Animations */
+        .plan-card {
+            animation: slideInUp 0.6s ease-out;
+        }
+
+        .plan-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .plan-card:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Contact section */
+        .contact {
+            padding: 60px 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            text-align: center;
+            color: white;
+        }
+
+        .contact h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Corazón -->
+                        <path d="M50 85 C30 65, 10 45, 10 25 C10 15, 18 10, 25 10 C32 10, 40 15, 50 25 C60 15, 68 10, 75 10 C82 10, 90 15, 90 25 C90 45, 70 65, 50 85 Z" 
+                              fill="url(#heartGradient)" stroke="#4a5568" stroke-width="2"/>
+                        
+                        <!-- Notas musicales -->
+                        <circle cx="35" cy="35" r="3" fill="#667eea"/>
+                        <rect x="37" y="25" width="2" height="15" fill="#667eea"/>
+                        <path d="M39 25 Q45 20, 45 25" stroke="#667eea" stroke-width="2" fill="none"/>
+                        
+                        <circle cx="55" cy="45" r="3" fill="#764ba2"/>
+                        <rect x="57" y="35" width="2" height="15" fill="#764ba2"/>
+                        <path d="M59 35 Q65 30, 65 35" stroke="#764ba2" stroke-width="2" fill="none"/>
+                        
+                        <circle cx="45" cy="55" r="2.5" fill="#667eea"/>
+                        <rect x="46.5" y="45" width="1.5" height="12" fill="#667eea"/>
+                        
+                        <!-- Gradiente -->
+                        <defs>
+                            <linearGradient id="heartGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#667eea;stop-opacity:0.8"/>
+                                <stop offset="100%" style="stop-color:#764ba2;stop-opacity:0.8"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="brand-text">
+                    <h1>Melodías del Corazón</h1>
+                    <p>Coro Profesional para Bodas</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Música que Emociona</h2>
+            <p>Hacemos de tu ceremonia un momento único e inolvidable con nuestra música profesional y emotiva</p>
+        </div>
+    </section>
+
+    <section class="plans">
+        <div class="container">
+            <h2>Nuestros Planes</h2>
+            <div class="plans-grid">
+                <!-- Plan 1: Clásico Básico -->
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <h3 class="plan-title">Clásico Básico</h3>
+                        <p class="plan-subtitle">Ideal para ceremonias íntimas y elegantes</p>
+                    </div>
+                    
+                    <div class="plan-features">
+                        <h4>Instrumentación:</h4>
+                        <ul>
+                            <li>Guitarra</li>
+                            <li>Piano</li>
+                            <li>Quinteto vocal (5 voces: sopranos, mezzosoprano, tenor y bajo)</li>
+                        </ul>
+                        
+                        <h4>Incluye:</h4>
+                        <ul>
+                            <li>Repertorio clásico litúrgico y moderno romántico</li>
+                            <li>Canciones del repertorio a elección del cliente</li>
+                            <li>Ensayo previo a la boda</li>
+                            <li>Sonido ambiental básico si el lugar lo requiere</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="plan-actions">
+                        <a href="#" class="btn btn-primary" onclick="selectPlan('Clásico Básico')">Elegir Plan</a>
+                        <a href="#" class="btn btn-secondary" onclick="showVideo('plan1')">Ver Video</a>
+                    </div>
+                </div>
+
+                <!-- Plan 2: Premium Elegance -->
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <h3 class="plan-title">Premium Elegance</h3>
+                        <p class="plan-subtitle">Para quienes desean una experiencia musical más envolvente</p>
+                    </div>
+                    
+                    <div class="plan-features">
+                        <h4>Instrumentación:</h4>
+                        <ul>
+                            <li>Guitarra</li>
+                            <li>Piano</li>
+                            <li>Violonchelo</li>
+                            <li>Violín</li>
+                            <li>Octeto vocal (8 voces mixtas para mayor riqueza armónica)</li>
+                        </ul>
+                        
+                        <h4>Incluye:</h4>
+                        <ul>
+                            <li>Asesoramiento personalizado para selección del repertorio</li>
+                            <li>Hasta 8 canciones en vivo</li>
+                            <li>Ensayo general en lugar de la ceremonia</li>
+                            <li>Sonido profesional (micrófonos, parlantes y consola)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="plan-actions">
+                        <a href="#" class="btn btn-primary" onclick="selectPlan('Premium Elegance')">Elegir Plan</a>
+                        <a href="#" class="btn btn-secondary" onclick="showVideo('plan2')">Ver Video</a>
+                    </div>
+                </div>
+
+                <!-- Plan 3: Gala Sinfónica -->
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <h3 class="plan-title">Gala Sinfónica</h3>
+                        <p class="plan-subtitle">Una propuesta majestuosa y sofisticada para bodas inolvidables</p>
+                    </div>
+                    
+                    <div class="plan-features">
+                        <h4>Instrumentación:</h4>
+                        <ul>
+                            <li>Piano</li>
+                            <li>Violín</li>
+                            <li>Violonchelo</li>
+                            <li>Flauta traversa</li>
+                            <li>Arpa</li>
+                            <li>Percusión suave (caja, campanas o vibráfono)</li>
+                            <li>Coro completo (mínimo 12 voces, posibilidad de incorporar solistas)</li>
+                        </ul>
+                        
+                        <h4>Incluye:</h4>
+                        <ul>
+                            <li>Dirección musical profesional en vivo</li>
+                            <li>Repertorio personalizado (clásico, religioso o contemporáneo)</li>
+                            <li>Ensayo general con todos los músicos</li>
+                            <li>Sonido premium y monitoreo profesional</li>
+                            <li>Posibilidad de adaptar una canción especial</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="plan-actions">
+                        <a href="#" class="btn btn-primary" onclick="selectPlan('Gala Sinfónica')">Elegir Plan</a>
+                        <a href="#" class="btn btn-secondary" onclick="showVideo('plan3')">Ver Video</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="container">
+            <h2>¿Listo para hacer tu ceremonia inolvidable?</h2>
+            <p>Contáctanos y hagamos realidad la banda sonora de tu día especial</p>
+        </div>
+    </section>
+
+    <!-- Modal para videos -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Video del Plan</h3>
+                <span class="close" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="video-container">
+                    <iframe id="videoFrame" src="" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function selectPlan(planName) {
+            const message = `¡Hola! Me interesa el plan "${planName}" de Melodías del Corazón para mi ceremonia. ¿Podrían brindarme más información?`;
+            const whatsappUrl = `https://wa.me/595983976038?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        function showVideo(planId) {
+            const modal = document.getElementById('videoModal');
+            const videoFrame = document.getElementById('videoFrame');
+            const modalTitle = document.getElementById('modalTitle');
+            
+            // URLs de ejemplo - reemplaza con los URLs reales de YouTube
+            const videoUrls = {
+                'plan1': 'https://www.youtube.com/embed/dQw4w9WgXcQ', // Reemplaza con URL real
+                'plan2': 'https://www.youtube.com/embed/dQw4w9WgXcQ', // Reemplaza con URL real
+                'plan3': 'https://www.youtube.com/embed/dQw4w9WgXcQ'  // Reemplaza con URL real
+            };
+            
+            const titles = {
+                'plan1': 'Clásico Básico - Video Demostrativo',
+                'plan2': 'Premium Elegance - Video Demostrativo',
+                'plan3': 'Gala Sinfónica - Video Demostrativo'
+            };
+            
+            videoFrame.src = videoUrls[planId];
+            modalTitle.textContent = titles[planId];
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('videoModal');
+            const videoFrame = document.getElementById('videoFrame');
+            modal.style.display = 'none';
+            videoFrame.src = '';
+        }
+
+        // Cerrar modal al hacer clic fuera de él
+        window.onclick = function(event) {
+            const modal = document.getElementById('videoModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Smooth scrolling para navegación interna
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href && href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Animación de entrada para las tarjetas
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.plan-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(50px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
